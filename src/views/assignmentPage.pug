@@ -1,0 +1,96 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Assinment Management System
+  style.
+    @media screen and (max-width:380px){
+      .a{
+        font-size:6px;
+      }
+      td{
+        font-size:6px;
+      }
+    }
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css')
+  // jQuery library
+  script(src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js')
+  // Popper JS
+  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')
+  // Latest compiled JavaScript
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  script(src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous')
+body(style="background-color:lightgrey")
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/') Assignment Management
+    button.navbar-toggler(data-target='#my-nav' data-toggle='collapse' aria-controls='my-nav' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #my-nav.collapse.navbar-collapse
+      ul.navbar-nav.ml-auto
+        li.nav-item.active
+          a.nav-link="Welcome "+response[0].userId
+
+        li.nav-item.active
+          a.nav-link(href='#')
+            | About Us 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#' tabindex='-1' aria-disabled='true') About Team
+        li.nav-item 
+          a.nav-link(href='/logout') Log out
+
+  div(class="table-responsive")
+    table(class="table bg-light table-striped ")
+      thead(class="thead-dark")
+        tr
+          th(class='a') class
+          th(class='a') subject
+          th(class='a') Assignment Question
+          th(colspan="3" class='a') Submission Date
+      tbody
+        each key in response[1].assignments
+          tr
+            td= key.class
+            td= key.tsubject
+            td= key.assinment_question
+            td= key.submission_date
+            td 
+              a(href=`/deleteAssignment?id=${key.assignmentId}` class='btn-dark p-1 pl-2 pr-2')
+                    i(class='fa fa-trash') 
+            td
+              a(href=`/editAssignment?id=${key.assignmentId}` class='btn-dark p-1 pl-2 pr-2' data-toggle="modal" data-target=`#${key.assignmentId}`)
+                    i(class='fa fa-pencil-square-o') 
+          
+          div(class="modal" id=key.assignmentId)
+            .modal-dialog
+              .modal-content
+                // Modal Header
+                .modal-header
+                  h4.modal-title Edit Assignment
+                  button.close(type='button' data-dismiss='modal') &times;
+                // Modal body
+                .modal-body
+                  label class 
+                  input(type="text" value=key.class class='form-control')
+                  label Subject
+                  input(type="text" value=key.tsubject class='form-control') 
+                  label Assignment Question
+                  textarea(class='form-control')=key.assinment_question  
+                  label Submission Date
+                  input(type="date" value=key.submission_date class='form-control')
+                  label Extra Information
+                  input(type="text" value=key.extraInfo class='form-control')  
+                // Modal footer
+                .modal-footer
+                  button(type="submit" class='btn btn-success')
+                    i(class='fa fa-pencil-square-o p-1 mr-2')  Edit 
+                  button.btn.btn-danger(type='button' data-dismiss='modal')
+                    i(class='fa fa-times-circle p-1 mr-2')  Close
+
+
+
+  .addnew
+    a(href='/addNewAssinment' class='btn btn-light ml-2')
+      i(class='fa fa-pencil-square-o' aria-hidden="true") 
+      span addNewAssinment

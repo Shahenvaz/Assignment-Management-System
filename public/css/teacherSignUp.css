@@ -1,0 +1,57 @@
+#teacher-sign-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid rgba(10, 4, 4, 0.274);
+    border-radius: 20px;
+    padding: 50px;
+}
+.icon-color{
+    color: rgb(22, 93, 110);
+    display: flex;
+    padding: 0;
+    margin-left: -10px;
+}
+.icon-color div{
+    padding-top: 5px;
+    padding-left: 9px;
+    background-color: rgba(151, 225, 243, 0.336);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+.title{
+    font-size: xx-large;
+}
+.button{
+    float: right;
+    padding: 5px;
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 15px;
+    background-color: rgb(76, 197, 228);
+    color:white;
+    font-weight: bolder;
+    border: none;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.warning
+{
+    position: absolute;
+    top:100px;
+    right: 0px;
+    background-color: red;
+    padding: 20px;
+    color:white;
+}

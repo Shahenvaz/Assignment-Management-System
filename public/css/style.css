@@ -1,0 +1,53 @@
+body,html{
+    height: 100%;
+}
+.main{
+    height: 100%;
+   background-image: url('../images/background/background.jpg'); 
+    background-size: 100% 100%;
+    position: relative;
+}
+.teacher-sign-in{
+    display: flex;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.inner-teacher-sign-in
+{
+    background-color: rgba(15, 14, 14, 0.692);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+.ad{
+    color:white;
+    font-size: 22pxæ;
+}
+a:link:hover{
+    text-decoration: none;
+}
+.image1 img{
+    width: 150px;
+    height: 200px;
+}
+
+/* media query starts here */
+
+@media screen and (max-width:360px){
+    .teacher-sign-in{
+        display: block;
+    }
+    .navbar-brand{
+         font-size: 10px;
+    }
+    .margin-top
+    {
+        margin-top: 90px;
+    }
+    .font-reduce{
+        content: AWS;
+    }
+}

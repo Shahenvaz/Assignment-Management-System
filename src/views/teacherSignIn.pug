@@ -1,0 +1,53 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Teacher Sign In
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css')
+  // jQuery library
+  script(src='https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js')
+  // Popper JS
+  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')
+  // Latest compiled JavaScript
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='../css/teacherSignIn.css')
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  a.navbar-brand(href='/') Assignment Management
+  button.navbar-toggler(data-target='#my-nav' data-toggle='collapse' aria-controls='my-nav' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #my-nav.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      li.nav-item.active
+        a.nav-link(href='#')
+          | About Us 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#' tabindex='-1' aria-disabled='true') About Team
+#teacher-sign-in
+  .left
+    img(src='images/login-page/teacher.jpg' alt='')
+  .right
+    h3(align='center') Teacher Login
+    form.form(action='/tlogin' method='post')
+      .teacherName
+        label(for='') Teacher Name
+        .tname
+          i.fa.fa-user.user-icon
+          input.form-control(type='text' name='tname')
+      .password
+        label(for='') Password
+        .tname
+          i.fa.fa-lock.user-icon
+          input.form-control(type='password' name='tpassword')
+      .row.buttons
+        button.btn.btn-outline-primary.row-cols-lg-6.ml-1(type='submit')
+          i.fa.fa-sign-in(style='margin-right: 1px;')
+          |   Login
+        a.btn.btn-dark.row-cols-lg-6.ml-2(href='/teacherSignUp')
+          i.fa.fa-plus
+          |  Sign Up
+        
+if(warning==true)
+    .warning teacher name or password is invalid

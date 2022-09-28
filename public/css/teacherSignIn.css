@@ -1,0 +1,63 @@
+#teacher-sign-in{
+    display: flex;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.left img{
+    height: 18rem;
+}
+.right{
+    padding-top: 40px;
+    
+        border: 2px solid lightgray;
+        border-radius: 20px;
+        
+        width: 300px;
+        padding: 20px;
+}
+.buttons{
+    padding: 10px;
+}
+.tname{
+    position: relative;
+}
+.user-icon{
+    color:rgba(7, 1, 4, 0.747);
+    position: absolute;
+    left: 5px;
+    top:12px;
+}
+input[type="text"],input[type="password"]{
+    padding-left: 20px;
+    border:none;
+    border-bottom: 2px solid rgba(7, 1, 4, 0.747);
+    border-radius: 0px;
+}
+input[type="text"]:focus,input[type="password"]:focus
+{
+    box-shadow: none;
+}
+.warning{
+    position: absolute;
+    top: 15%;
+    right: 0px;
+    background-color: red;
+    width: 300px;
+    padding: 20px 20px;
+    color:white;
+}
+@media screen and (max-width:360px) {
+    .left
+    {
+        display: none;
+    }
+    .right
+    {
+        width: 300px;
+        padding: 20px;
+        border: 2px solid lightgray;
+        border-radius: 20px;
+    }
+}
