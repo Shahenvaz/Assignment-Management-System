@@ -4,7 +4,7 @@ app.set('view engine', 'pug')
 
 app.set('views', __dirname + '/src/views')
 
-var data =[
+let data =[
             {
                 assignmentnumber:'shahenvaz',
                 name:'khan'

@@ -26,7 +26,7 @@ app.set('views', __dirname+'/src/views')
 
 app.use(cookieParser())
 
-var session;
+let session;
 
 //cookie testing end here
 
@@ -54,7 +54,7 @@ app.get('/',async(req,res)=>{
     else if(req.session.StudentId)
     {
         
-        StudentClass = req.session.StudentClass
+        let StudentClass = req.session.StudentClass
         let a = await dbObject.findStudentAssignment({class:StudentClass})
          let response = [{
             StudentId: req.session.StudentId
@@ -74,7 +74,7 @@ app.get('/',async(req,res)=>{
 
 app.get('/studentSignin',(req,res)=>{
     //res.sendFile(__dirname+'/public/Student/logInForm.html')
-    swarning = req.session.swarning
+    let swarning = req.session.swarning
     req.session.swarning = false
     res.render('loginFOrm',{swarning:swarning}) 
 })
@@ -92,7 +92,7 @@ app.get('/studentSignin',(req,res)=>{
 // teacher controller
 
     app.get('/teacherSignin',(req,res)=>{
-        warning = req.session.warning
+        let warning = req.session.warning
         req.session.warning=false
         res.render('teacherSignIn',{warning:warning})
         
@@ -117,9 +117,9 @@ app.get('/studentSignin',(req,res)=>{
 
 
 app.post('/addAssignment',(req,res)=>{
-    Id ={ assignmentId : randomIdgenerator()}
+    let Id = { assignmentId : randomIdgenerator()}
 
-    data = Object.assign(req.body,Id)
+    let data = Object.assign(req.body,Id)
     
     dbObject.insertAssignment(data)
 
@@ -174,9 +174,11 @@ app.post('/slogin',async(req,res)=>{
    
     else
     {
+        console.log(a);
         session = req.session
         session.StudentId = a[0].NAME
         session.StudentClass = a[0].CLASS
+        console.log(session.StudentClass);
         res.redirect('/')
     }
 })
@@ -207,7 +209,7 @@ function randomIdgenerator()
     let randomId= Math.ceil(Math.random()*10000);
     const charecter="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let password="";
-    for(i=0;i<8;i++)
+    for(let i=0;i<8;i++)
     {
         
     password +=charecter.charAt(Math.ceil(Math.random()*charecter.length));

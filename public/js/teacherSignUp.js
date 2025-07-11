@@ -15,7 +15,7 @@ second.classList.add('hide')
 third.classList.add('hide')
 submit_btn.classList.add('hide')
 
-var count = 0;
+let count = 0;
 button.addEventListener('click',(event)=>{
     count++;
     if(count==1)
