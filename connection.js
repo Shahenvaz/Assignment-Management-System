@@ -1,7 +1,7 @@
 const {MongoClient} = require('mongodb')
 class Teacher
 {
-     url = "mongodb://localhost:27017"
+     url = "mongodb://172.22.192.1:27017"
      client = new MongoClient(this.url)
     database = this.client.db('Assignment_management_system')
     collection = this.database.collection('Teacher')
@@ -38,6 +38,8 @@ class Teacher
         this.client.connect()
         this.collection = await this.database.collection('Student')
         let response =await this.collection.find({$and:JSON.parse(a)}).toArray()
+        console.log(response);
+
         return response
     }
     findStudentAssignment = async function(a) {

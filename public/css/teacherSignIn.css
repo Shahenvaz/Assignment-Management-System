@@ -9,13 +9,12 @@
     height: 18rem;
 }
 .right{
-    padding-top: 40px;
     
-        border: 2px solid lightgray;
-        border-radius: 20px;
-        
-        width: 300px;
-        padding: 20px;
+    border: 2px solid lightgray;
+    border-radius: 20px;
+     
+    width: 300px;
+    padding: 40px 20px 20px 20px;
 }
 .buttons{
     padding: 10px;
