@@ -22,5 +22,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: echo ${{ secrets.SSH_KEY }} > sshkey
-    - run: chmod 4000 sshkey
+    - run: chmod 400 sshkey
     - run: ssh -i sshkey ska78657@34.93.195.237 ls
