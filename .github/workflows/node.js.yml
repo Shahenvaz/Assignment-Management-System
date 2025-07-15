@@ -24,4 +24,4 @@ jobs:
     - run: printf "%s" "${{ secrets.SSH_KEY }}" > sshkey
     - run: cat sshkey
     - run: chmod 400 sshkey
-    - run: ssh -i sshkey ska78657@34.93.195.237 ls
+    - run: ssh -i -o StrictHostKeyChecking=no sshkey ska78657@34.93.195.237 ls
