@@ -24,4 +24,4 @@ jobs:
     - run: echo ${{ secrets.SSH_KEY }} | base64 -d > sshkey
     - run: cat sshkey
     - run: chmod 400 sshkey
-    - run: scp -o StrictHostKeyChecking=no -i sshkey --recursive public/ ska78657@34.93.195.237:~/
+    - run: scp -o StrictHostKeyChecking=no -i sshkey -r public/ ska78657@34.93.195.237:~/
